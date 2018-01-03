@@ -45,25 +45,63 @@ public class Game {
     }
 
     private void setup() {
-        Room entrance = new Room(new String[] {
-                "You are standing at the entrance of an abandoned theatre.",
-                "Du stehst am Eingang eines verlassenen Theaters."
+        Room soccerFieldN = new Room(new String[] {
+                "You are standing at the northern part of the soccer field",
+                "Du stehst auf der nördlichen Hälfte des Fußballfeldes."
         });
-        Room cashPoint = new Room(new String[] {
-                "You are standing at the cash point. An old poster of the musical Cats is hanging behind the counter.",
-                "Du stehst an der Kasse. Ein altes Poster vom Musical Cats hängt hinter dem Tresen."
+        Room soccerFieldS = new Room(new String[] {
+                "You are standing at the southern part of the soccer field",
+                "Du stehst auf der südlichen Hälfte des Fußballfeldes."
         });
-        Room popcornStand = new Room(new String[] {
-                "You are now at the old popcorn stand. There is still popcorn left in one of the boxes.",
-                "Du bist nun am Popcorn-Stand. Es ist immer noch etwas Popcorn in einer der Boxen."
+        Room trackN = new Room(new String[] {
+                "You are standing at the northern part of the running track",
+                "Du stehst auf der nördlichen Abschnitt der Tartanbahn."
+        });
+        Room trackS = new Room(new String[] {
+                "You are standing at the southern part of the running track",
+                "Du stehst auf dem südlichen Abschnitt der Tartanbahn."
+        });
+        Room trackNW = new Room(new String[] {
+                "You are standing at the northwestern part of the running track",
+                "Du stehst auf dem nordwestlichen Abschnitt der Tartanbahn."
+        });
+        Room trackNE = new Room(new String[] {
+                "You are standing at the northeastern part of the running track",
+                "Du stehst auf dem nordöstlichen Abschnitt der Tartanbahn."
+        });
+        Room trackSW = new Room(new String[] {
+                "You are standing at the southwestern part of the running track",
+                "Du stehst auf dem südwestlichen Abschnitt der Tartanbahn."
+        });
+        Room trackSE = new Room(new String[] {
+                "You are standing at the southeastern part of the running track",
+                "Du stehst auf dem südöstlichen Abschnitt der Tartanbahn."
         });
 
-        entrance.addExit("inside", cashPoint);
-        cashPoint.addExit("outside", entrance)
-                 .addExit("forwards", popcornStand);
-        popcornStand.addExit("back", cashPoint);
+        soccerFieldN.addExit("north", trackN)
+                    .addExit("south", soccerFieldS)
+                    .addExit("west", trackNW)
+                    .addExit("east", trackNE);
+        soccerFieldS.addExit("north", soccerFieldN)
+                    .addExit("south", trackS)
+                    .addExit("west", trackSW)
+                    .addExit("east", trackSE);
+        trackN.addExit("south", soccerFieldN)
+              .addExit("west", trackNW)
+              .addExit("east", trackNE);
+        trackNW.addExit("south", trackSW)
+                .addExit("east", soccerFieldN);
+        trackNE.addExit("south", trackSE)
+                .addExit("west", soccerFieldN);
+        trackS.addExit("north", soccerFieldS)
+                .addExit("west", trackSW)
+                .addExit("east", trackSE);
+        trackSW.addExit("north", trackNW)
+                .addExit("east", soccerFieldS);
+        trackSE.addExit("north", trackNE)
+                .addExit("west", soccerFieldS);
 
-        currentRoom = entrance;
+        currentRoom = soccerFieldN;
     }
 
     private void go(String exit) {
