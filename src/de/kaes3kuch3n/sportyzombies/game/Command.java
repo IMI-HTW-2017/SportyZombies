@@ -21,11 +21,11 @@ public class Command {
         return Commands.UNKNOWN;
     }
 
-    public Commands getCommand() {
+    Commands getCommand() {
         return command;
     }
 
-    public String[] getArgs() {
+    String[] getArgs() {
         return args;
     }
 }

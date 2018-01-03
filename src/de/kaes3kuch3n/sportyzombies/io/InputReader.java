@@ -15,7 +15,7 @@ public class InputReader {
 
     public Command getInput() {
         System.out.println("> ");
-        String[] input = scanner.next().trim().toLowerCase().split(" ");
+        String[] input = scanner.nextLine().trim().toLowerCase().split(" ");
         return new Command(input[0], Arrays.copyOfRange(input, 1, input.length));
     }
 

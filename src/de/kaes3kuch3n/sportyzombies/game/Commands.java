@@ -27,6 +27,19 @@ public enum Commands {
             }
         }
     },
+    GO {
+        @Override
+        String getLocalizedName(Language language) {
+            switch (language) {
+                case EN:
+                    return "go";
+                case DE:
+                    return "gehe";
+                default:
+                    return "go";
+            }
+        }
+    },
     UNKNOWN {
         @Override
         String getLocalizedName(Language language) {
