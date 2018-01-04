@@ -1,0 +1,85 @@
+{
+  "game": {
+    "helpmessage": "Verfügbare Befehle:\ngehe <Ausgang> - Gehe durch Ausgang\nhilfe - Zeige diesen Hilfetext\nbeenden - Beendet das Spiel",
+    "commandinvalidmessage": "Ich verstehe nicht, was Du meinst.",
+    "welcomemessage": "\nWillkommen zu SportyZombies!\nViel Spaß und viel Glück\n",
+    "leavemessage": "\nVielen Dank für's Spielen!\nAuf Wiedersehen!\n",
+    "cantgothere": "Du kannst dort nicht hin."
+  },
+  "commands": {
+    "quit": "beenden",
+    "help": "hilfe",
+    "go": "gehe"
+  },
+  "room": {
+    "availableexits": "Verfügbare Ausgänge:",
+    "rooms": {
+      "soccerfieldn": {
+        "description": "Du befindest Dich auf der nördlichen Hälfte des Fußballfeldes.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "west": "westen",
+          "east": "osten"
+        }
+      },
+      "soccerfields": {
+        "description": "Du befindest Dich auf der südlichen Hälfte des Fußballfeldes.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "west": "westen",
+          "east": "osten"
+        }
+      },
+      "trackn": {
+        "description": "Du befindest Dich auf dem nördlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "south": "süden",
+          "west": "westen",
+          "east": "osten"
+        }
+      },
+      "tracknw": {
+        "description": "Du befindest Dich auf dem nordwestlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "east": "osten"
+        }
+      },
+      "trackne": {
+        "description": "Du befindest Dich auf dem nordöstlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "west": "westen"
+        }
+      },
+      "tracks": {
+        "description": "Du befindest Dich auf dem südlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "north": "norden",
+          "west": "westen",
+          "east": "osten"
+        }
+      },
+      "tracksw": {
+        "description": "Du befindest Dich auf dem südwestlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "east": "osten"
+        }
+      },
+      "trackse": {
+        "description": "Du befindest Dich auf dem südöstlichen Abschnitt der Tartanbahn.",
+        "exits": {
+          "north": "norden",
+          "south": "süden",
+          "west": "westen"
+        }
+      }
+    }
+  }
+}

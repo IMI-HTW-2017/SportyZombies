@@ -1,0 +1,85 @@
+{
+  "game": {
+    "helpmessage": "Available Commands:\ngo <exit> - Go through exit\nhelp - Show this help message\nquit - Leave the game",
+    "commandinvalidmessage": "I don't understand what you mean.",
+    "welcomemessage": "\nWelcome to SportyZombies!\nGood luck and have fun!\n",
+    "leavemessage": "\nThank you very much for playing!\nGoodbye!\n",
+    "cantgothere": "You can't go there."
+  },
+  "commands": {
+    "quit": "quit",
+    "help": "help",
+    "go": "go"
+  },
+  "room": {
+    "availableexits": "Available Exits:",
+    "rooms": {
+      "soccerfieldn": {
+        "description": "You are at the northern half of the soccer field.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "west": "west",
+          "east": "east"
+        }
+      },
+      "soccerfields": {
+        "description": "You are at the southern half of the soccer field.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "west": "west",
+          "east": "east"
+        }
+      },
+      "trackn": {
+        "description": "You are at the northern part of the running track.",
+        "exits": {
+          "south": "south",
+          "west": "west",
+          "east": "east"
+        }
+      },
+      "tracknw": {
+        "description": "You are at the northwestern part of the running track.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "east": "east"
+        }
+      },
+      "trackne": {
+        "description": "You are at the northeastern part of the running track.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "west": "west"
+        }
+      },
+      "tracks": {
+        "description": "You are at the southern part of the running track.",
+        "exits": {
+          "north": "north",
+          "west": "west",
+          "east": "east"
+        }
+      },
+      "tracksw": {
+        "description": "You are at the southwestern part of the running track.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "east": "east"
+        }
+      },
+      "trackse": {
+        "description": "You are at the southeastern part of the running track.",
+        "exits": {
+          "north": "north",
+          "south": "south",
+          "west": "west"
+        }
+      }
+    }
+  }
+}
