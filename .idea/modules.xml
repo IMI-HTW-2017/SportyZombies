@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SportyZombies.iml" filepath="$PROJECT_DIR$/SportyZombies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sportyzombies.iml" filepath="$PROJECT_DIR$/.idea/modules/sportyzombies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sportyzombies_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sportyzombies_main.iml" group="sportyzombies" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sportyzombies_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sportyzombies_test.iml" group="sportyzombies" />
     </modules>
   </component>
 </project>
