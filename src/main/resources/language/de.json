@@ -11,9 +11,9 @@
     "help": "hilfe",
     "go": "gehe"
   },
-  "room": {
+  "location": {
     "availableexits": "Verfügbare Ausgänge:",
-    "rooms": {
+    "locations": {
       "soccerfieldn": {
         "description": "Du befindest Dich auf der nördlichen Hälfte des Fußballfeldes.",
         "exits": {

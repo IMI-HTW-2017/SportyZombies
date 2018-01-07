@@ -11,9 +11,9 @@
     "help": "help",
     "go": "go"
   },
-  "room": {
+  "location": {
     "availableexits": "Available Exits:",
-    "rooms": {
+    "locations": {
       "soccerfieldn": {
         "description": "You are at the northern half of the soccer field.",
         "exits": {

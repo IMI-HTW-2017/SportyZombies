@@ -11,13 +11,15 @@ public class Game {
     private InputReader in;
     private Output out;
 
+    private Player player;
+
     private boolean running;
-    private Room currentRoom;
 
     public Game() {
         in = new InputReader();
         out = new Output();
-        setupRooms();
+        player = new Player();
+        setuplocations();
     }
 
     public void run() {
@@ -31,51 +33,51 @@ public class Game {
         showLeaveMessage();
     }
 
-    private void setupRooms() {
-        Room soccerFieldN = new Room("room.rooms.soccerfieldn.description");
-        Room soccerFieldS = new Room("room.rooms.soccerfields.description");
-        Room trackN = new Room("room.rooms.trackn.description");
-        Room trackNW = new Room("room.rooms.tracknw.description");
-        Room trackNE = new Room("room.rooms.trackne.description");
-        Room trackS = new Room("room.rooms.tracks.description");
-        Room trackSW = new Room("room.rooms.tracksw.description");
-        Room trackSE = new Room("room.rooms.trackse.description");
+    private void setuplocations() {
+        Location soccerFieldN = new Location("location.locations.soccerfieldn.description");
+        Location soccerFieldS = new Location("location.locations.soccerfields.description");
+        Location trackN = new Location("location.locations.trackn.description");
+        Location trackNW = new Location("location.locations.tracknw.description");
+        Location trackNE = new Location("location.locations.trackne.description");
+        Location trackS = new Location("location.locations.tracks.description");
+        Location trackSW = new Location("location.locations.tracksw.description");
+        Location trackSE = new Location("location.locations.trackse.description");
 
-        soccerFieldN.addExit("north", "room.rooms.soccerfieldn.exits.north", trackN);
-        soccerFieldN.addExit("south", "room.rooms.soccerfieldn.exits.south", soccerFieldS);
-        soccerFieldN.addExit("west", "room.rooms.soccerfieldn.exits.west", trackNW);
-        soccerFieldN.addExit("east", "room.rooms.soccerfieldn.exits.east", trackNE);
+        soccerFieldN.addExit("north", "location.locations.soccerfieldn.exits.north", trackN);
+        soccerFieldN.addExit("south", "location.locations.soccerfieldn.exits.south", soccerFieldS);
+        soccerFieldN.addExit("west", "location.locations.soccerfieldn.exits.west", trackNW);
+        soccerFieldN.addExit("east", "location.locations.soccerfieldn.exits.east", trackNE);
 
-        soccerFieldS.addExit("north", "room.rooms.soccerfields.exits.north", soccerFieldN);
-        soccerFieldS.addExit("south", "room.rooms.soccerfields.exits.south", trackS);
-        soccerFieldS.addExit("west", "room.rooms.soccerfields.exits.west", trackSW);
-        soccerFieldS.addExit("east", "room.rooms.soccerfields.exits.east", trackSE);
+        soccerFieldS.addExit("north", "location.locations.soccerfields.exits.north", soccerFieldN);
+        soccerFieldS.addExit("south", "location.locations.soccerfields.exits.south", trackS);
+        soccerFieldS.addExit("west", "location.locations.soccerfields.exits.west", trackSW);
+        soccerFieldS.addExit("east", "location.locations.soccerfields.exits.east", trackSE);
 
-        trackN.addExit("south", "room.rooms.trackn.exits.south", soccerFieldN);
-        trackN.addExit("west", "room.rooms.trackn.exits.west", trackNW);
-        trackN.addExit("east", "room.rooms.trackn.exits.east", trackNE);
+        trackN.addExit("south", "location.locations.trackn.exits.south", soccerFieldN);
+        trackN.addExit("west", "location.locations.trackn.exits.west", trackNW);
+        trackN.addExit("east", "location.locations.trackn.exits.east", trackNE);
 
-        trackNW.addExit("north", "room.rooms.tracknw.exits.north", trackN);
-        trackNW.addExit("south", "room.rooms.tracknw.exits.south", trackSW);
-        trackNW.addExit("east", "room.rooms.tracknw.exits.east", soccerFieldN);
+        trackNW.addExit("north", "location.locations.tracknw.exits.north", trackN);
+        trackNW.addExit("south", "location.locations.tracknw.exits.south", trackSW);
+        trackNW.addExit("east", "location.locations.tracknw.exits.east", soccerFieldN);
 
-        trackNE.addExit("north", "room.rooms.trackne.exits.north", trackN);
-        trackNE.addExit("south", "room.rooms.trackne.exits.south", trackSE);
-        trackNE.addExit("west", "room.rooms.trackne.exits.west", soccerFieldN);
+        trackNE.addExit("north", "location.locations.trackne.exits.north", trackN);
+        trackNE.addExit("south", "location.locations.trackne.exits.south", trackSE);
+        trackNE.addExit("west", "location.locations.trackne.exits.west", soccerFieldN);
 
-        trackS.addExit("north", "room.rooms.tracks.exits.north", soccerFieldS);
-        trackS.addExit("west", "room.rooms.tracks.exits.west", trackSW);
-        trackS.addExit("east", "room.rooms.tracks.exits.east", trackSE);
+        trackS.addExit("north", "location.locations.tracks.exits.north", soccerFieldS);
+        trackS.addExit("west", "location.locations.tracks.exits.west", trackSW);
+        trackS.addExit("east", "location.locations.tracks.exits.east", trackSE);
 
-        trackSW.addExit("north", "room.rooms.tracksw.exits.north", trackNW);
-        trackSW.addExit("south", "room.rooms.tracksw.exits.south", trackS);
-        trackSW.addExit("east", "room.rooms.tracksw.exits.west", soccerFieldS);
+        trackSW.addExit("north", "location.locations.tracksw.exits.north", trackNW);
+        trackSW.addExit("south", "location.locations.tracksw.exits.south", trackS);
+        trackSW.addExit("east", "location.locations.tracksw.exits.west", soccerFieldS);
 
-        trackSE.addExit("north", "room.rooms.trackse.exits.north", trackNE);
-        trackSE.addExit("south", "room.rooms.trackse.exits.south", trackS);
-        trackSE.addExit("west", "room.rooms.trackse.exits.west", soccerFieldS);
+        trackSE.addExit("north", "location.locations.trackse.exits.north", trackNE);
+        trackSE.addExit("south", "location.locations.trackse.exits.south", trackS);
+        trackSE.addExit("west", "location.locations.trackse.exits.west", soccerFieldS);
 
-        currentRoom = soccerFieldN;
+        player.setCurrentLocation(soccerFieldN);
     }
 
     private void processInput(Command cmd) {
@@ -96,10 +98,10 @@ public class Game {
     }
 
     private void go(String exit) {
-        for (Map.Entry e : currentRoom.getLocalizedExits().entrySet()) {
+        for (Map.Entry e : player.getCurrentLocation().getLocalizedExits().entrySet()) {
             if (e.getValue().toString().equalsIgnoreCase(exit)) {
-                currentRoom = currentRoom.getNextRoom(e.getKey().toString());
-                out.write(currentRoom.getRoomInfo());
+                player.setCurrentLocation(player.getCurrentLocation().getNextLocation(e.getKey().toString()));
+                out.write(player.getCurrentLocation().getLocationInfo());
                 return;
             }
         }
@@ -116,7 +118,7 @@ public class Game {
 
     private void showWelcomeMessage() {
         out.write(SportyZombies.getLanguageLoader().getLocalizedString("game.welcomemessage"));
-        out.write(currentRoom.getRoomInfo());
+        out.write(player.getCurrentLocation().getLocationInfo());
     }
 
     private void showLeaveMessage() {

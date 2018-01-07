@@ -1,11 +1,11 @@
 package de.kaes3kuch3n.sportyzombies.game;
 
-public class Exit {
+class Exit {
 
     private String name;
-    private Room leadsTo;
+    private Location leadsTo;
 
-    Exit(String name, Room leadsTo) {
+    Exit(String name, Location leadsTo) {
         this.name = name;
         this.leadsTo = leadsTo;
     }
@@ -14,7 +14,7 @@ public class Exit {
         return name;
     }
 
-    public Room getLeadsTo() {
+    public Location getLeadsTo() {
         return leadsTo;
     }
 }

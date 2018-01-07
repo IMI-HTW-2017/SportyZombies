@@ -2,25 +2,24 @@ package de.kaes3kuch3n.sportyzombies.game;
 
 import de.kaes3kuch3n.sportyzombies.SportyZombies;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Room {
+class Location {
     private String description;
     private HashMap<String, Exit> exits;
 
-    Room(String description) {
+    Location(String description) {
         this.description = description;
         exits = new HashMap<>();
     }
 
-    void addExit(String name, String localizedNamePath, Room exit) {
+    void addExit(String name, String localizedNamePath, Location exit) {
         exits.put(name, new Exit(localizedNamePath, exit));
     }
 
-    String getRoomInfo() {
-        StringBuilder sb = new StringBuilder(SportyZombies.getLanguageLoader().getLocalizedString("room.availableexits"));
+    String getLocationInfo() {
+        StringBuilder sb = new StringBuilder(SportyZombies.getLanguageLoader().getLocalizedString("location.availableexits"));
         sb.append(" ");
         for (String exit : getExits()) {
             sb.append(SportyZombies.getLanguageLoader().getLocalizedString(exits.get(exit).getName())).append(", ");
@@ -29,7 +28,7 @@ public class Room {
         return getDescription() + "\n" + sb.toString();
     }
 
-    Room getNextRoom(String exit) {
+    Location getNextLocation(String exit) {
         return exits.get(exit).getLeadsTo();
     }
 
