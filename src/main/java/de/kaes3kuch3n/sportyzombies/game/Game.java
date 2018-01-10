@@ -43,39 +43,39 @@ public class Game {
         Location trackSW = new Location("location.locations.tracksw.description");
         Location trackSE = new Location("location.locations.trackse.description");
 
-        soccerFieldN.addExit("north", "location.locations.soccerfieldn.exits.north", trackN);
-        soccerFieldN.addExit("south", "location.locations.soccerfieldn.exits.south", soccerFieldS);
-        soccerFieldN.addExit("west", "location.locations.soccerfieldn.exits.west", trackNW);
-        soccerFieldN.addExit("east", "location.locations.soccerfieldn.exits.east", trackNE);
+        soccerFieldN.addExit("location.locations.soccerfieldn.exits.north", trackN);
+        soccerFieldN.addExit("location.locations.soccerfieldn.exits.south", soccerFieldS);
+        soccerFieldN.addExit("location.locations.soccerfieldn.exits.west", trackNW);
+        soccerFieldN.addExit("location.locations.soccerfieldn.exits.east", trackNE);
 
-        soccerFieldS.addExit("north", "location.locations.soccerfields.exits.north", soccerFieldN);
-        soccerFieldS.addExit("south", "location.locations.soccerfields.exits.south", trackS);
-        soccerFieldS.addExit("west", "location.locations.soccerfields.exits.west", trackSW);
-        soccerFieldS.addExit("east", "location.locations.soccerfields.exits.east", trackSE);
+        soccerFieldS.addExit("location.locations.soccerfields.exits.north", soccerFieldN);
+        soccerFieldS.addExit("location.locations.soccerfields.exits.south", trackS);
+        soccerFieldS.addExit("location.locations.soccerfields.exits.west", trackSW);
+        soccerFieldS.addExit("location.locations.soccerfields.exits.east", trackSE);
 
-        trackN.addExit("south", "location.locations.trackn.exits.south", soccerFieldN);
-        trackN.addExit("west", "location.locations.trackn.exits.west", trackNW);
-        trackN.addExit("east", "location.locations.trackn.exits.east", trackNE);
+        trackN.addExit("location.locations.trackn.exits.south", soccerFieldN);
+        trackN.addExit("location.locations.trackn.exits.west", trackNW);
+        trackN.addExit("location.locations.trackn.exits.east", trackNE);
 
-        trackNW.addExit("north", "location.locations.tracknw.exits.north", trackN);
-        trackNW.addExit("south", "location.locations.tracknw.exits.south", trackSW);
-        trackNW.addExit("east", "location.locations.tracknw.exits.east", soccerFieldN);
+        trackNW.addExit("location.locations.tracknw.exits.north", trackN);
+        trackNW.addExit("location.locations.tracknw.exits.south", trackSW);
+        trackNW.addExit("location.locations.tracknw.exits.east", soccerFieldN);
 
-        trackNE.addExit("north", "location.locations.trackne.exits.north", trackN);
-        trackNE.addExit("south", "location.locations.trackne.exits.south", trackSE);
-        trackNE.addExit("west", "location.locations.trackne.exits.west", soccerFieldN);
+        trackNE.addExit("location.locations.trackne.exits.north", trackN);
+        trackNE.addExit("location.locations.trackne.exits.south", trackSE);
+        trackNE.addExit("location.locations.trackne.exits.west", soccerFieldN);
 
-        trackS.addExit("north", "location.locations.tracks.exits.north", soccerFieldS);
-        trackS.addExit("west", "location.locations.tracks.exits.west", trackSW);
-        trackS.addExit("east", "location.locations.tracks.exits.east", trackSE);
+        trackS.addExit("location.locations.tracks.exits.north", soccerFieldS);
+        trackS.addExit("location.locations.tracks.exits.west", trackSW);
+        trackS.addExit("location.locations.tracks.exits.east", trackSE);
 
-        trackSW.addExit("north", "location.locations.tracksw.exits.north", trackNW);
-        trackSW.addExit("south", "location.locations.tracksw.exits.south", trackS);
-        trackSW.addExit("east", "location.locations.tracksw.exits.west", soccerFieldS);
+        trackSW.addExit("location.locations.tracksw.exits.north", trackNW);
+        trackSW.addExit("location.locations.tracksw.exits.south", trackS);
+        trackSW.addExit("location.locations.tracksw.exits.west", soccerFieldS);
 
-        trackSE.addExit("north", "location.locations.trackse.exits.north", trackNE);
-        trackSE.addExit("south", "location.locations.trackse.exits.south", trackS);
-        trackSE.addExit("west", "location.locations.trackse.exits.west", soccerFieldS);
+        trackSE.addExit("location.locations.trackse.exits.north", trackNE);
+        trackSE.addExit("location.locations.trackse.exits.south", trackS);
+        trackSE.addExit("location.locations.trackse.exits.west", soccerFieldS);
 
         player.setCurrentLocation(soccerFieldN);
     }
@@ -98,9 +98,9 @@ public class Game {
     }
 
     private void go(String exit) {
-        for (Map.Entry e : player.getCurrentLocation().getLocalizedExits().entrySet()) {
-            if (e.getValue().toString().equalsIgnoreCase(exit)) {
-                player.setCurrentLocation(player.getCurrentLocation().getNextLocation(e.getKey().toString()));
+        for (String e : player.getCurrentLocation().getExits()) {
+            if (SportyZombies.getLanguageLoader().getLocalizedString(e).equalsIgnoreCase(exit)) {
+                player.setCurrentLocation(player.getCurrentLocation().getNextLocation(e));
                 out.write(player.getCurrentLocation().getLocationInfo());
                 return;
             }
