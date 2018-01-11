@@ -2,7 +2,12 @@ package de.kaes3kuch3n.sportyzombies.game;
 
 import de.kaes3kuch3n.sportyzombies.SportyZombies;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 public class Command {
+
+    private static final HashSet<String> USEWORDS = new HashSet<>(Arrays.asList("commands.usewords.on", "commands.usewords.with"));
 
     private Commands command;
     private String[] args;
@@ -30,4 +35,11 @@ public class Command {
         return args;
     }
 
+    public static boolean isUseWord(String word) {
+        for (String s : USEWORDS) {
+            if (SportyZombies.getLanguageLoader().getLocalizedString(s).equalsIgnoreCase(word))
+                return true;
+        }
+        return false;
+    }
 }

@@ -4,12 +4,25 @@
     "commandinvalidmessage": "Ich verstehe nicht, was Du meinst.",
     "welcomemessage": "\nWillkommen zu SportyZombies!\nViel Spaß und viel Glück\n",
     "leavemessage": "\nVielen Dank für's Spielen!\nAuf Wiedersehen!\n",
-    "cantgothere": "Du kannst dort nicht hin."
+    "cantgothere": "Du kannst dort nicht hin.",
+    "taken": "genommen.",
+    "overloaded": "Du kannst nicht noch mehr Items mitnehmen.",
+    "use": {
+      "what": "Was möchtest Du benutzen?",
+      "onwhat": "Mit was möchtest Du das Item benutzen?",
+      "invaliditem": "Du kannst das nicht miteinander verwenden."
+    }
   },
   "commands": {
     "quit": "beenden",
     "help": "hilfe",
-    "go": "gehe"
+    "go": "gehe",
+    "use": "benuzte",
+    "take": "nimm",
+    "usewords": {
+      "on": "auf",
+      "with": "mit"
+    }
   },
   "location": {
     "availableexits": "Verfügbare Ausgänge:",
@@ -80,6 +93,29 @@
           "west": "westen"
         }
       }
+    }
+  },
+  "items": {
+    "noitem": "Du hast kein Item mit diesem Namen im Iventar.",
+    "letter": {
+      "name": "Brief",
+      "description": "Ein Brief liegt vor Dir.",
+      "use": "Willkommen zu SportyZombies!\nDieses Spiel wurde von Luis Hankel entwickelt.\nViel Glück und viel Spaß!"
+    },
+    "key": {
+      "name": "Schlüssel",
+      "description": "Ein Schlüssel liegt im Gras zu Deiner Linken.",
+      "use": "Du hast die Tür geöffnet."
+    },
+    "boulder": {
+      "name": "Fels",
+      "description": "Ein großer Felsbrocken liegt rechts von Dir. Er sieht sehr schwer aus.",
+      "use": "Use boulder"
+    },
+    "door": {
+      "name": "Tür",
+      "description": "Eine Tür.",
+      "use": "Sie ist verschlossen."
     }
   }
 }

@@ -4,12 +4,25 @@
     "commandinvalidmessage": "I don't understand what you mean.",
     "welcomemessage": "\nWelcome to SportyZombies!\nGood luck and have fun!\n",
     "leavemessage": "\nThank you very much for playing!\nGoodbye!\n",
-    "cantgothere": "You can't go there."
+    "cantgothere": "You can't go there.",
+    "taken": "taken.",
+    "overloaded": "You can't carry any more items.",
+    "use": {
+      "what": "What do you want to use?",
+      "onwhat": "With what do you want to use the item?",
+      "invaliditem": "You cannot use these items together."
+    }
   },
   "commands": {
     "quit": "quit",
     "help": "help",
-    "go": "go"
+    "go": "go",
+    "use": "use",
+    "take": "take",
+    "usewords": {
+      "on": "on",
+      "with": "with"
+    }
   },
   "location": {
     "availableexits": "Available Exits:",
@@ -80,6 +93,29 @@
           "west": "west"
         }
       }
+    }
+  },
+  "items": {
+    "noitem": "You don't have an item with this name in your inventory.",
+    "letter": {
+      "name": "letter",
+      "description": "A letter is laying in front of you.",
+      "use": "Welcome to SportyZombies!\nThis game was developed by Luis Hankel.\nGood luck and have fun!"
+    },
+    "key": {
+      "name": "key",
+      "description": "There is a key in the grass on your left.",
+      "use": "You opened the door."
+    },
+    "boulder": {
+      "name": "boulder",
+      "description": "A big boulder is at your right. It looks very heavy.",
+      "use": "Use boulder"
+    },
+    "door": {
+      "name": "door",
+      "description": "A door.",
+      "use": "It is locked."
     }
   }
 }

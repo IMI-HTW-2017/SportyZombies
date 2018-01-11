@@ -4,8 +4,6 @@ import de.kaes3kuch3n.sportyzombies.SportyZombies;
 import de.kaes3kuch3n.sportyzombies.io.InputReader;
 import de.kaes3kuch3n.sportyzombies.io.Output;
 
-import java.util.Map;
-
 public class Game {
 
     private InputReader in;
@@ -19,7 +17,7 @@ public class Game {
         in = new InputReader();
         out = new Output();
         player = new Player();
-        setuplocations();
+        setup();
     }
 
     public void run() {
@@ -33,7 +31,7 @@ public class Game {
         showLeaveMessage();
     }
 
-    private void setuplocations() {
+    private void setup() {
         Location soccerFieldN = new Location("location.locations.soccerfieldn.description");
         Location soccerFieldS = new Location("location.locations.soccerfields.description");
         Location trackN = new Location("location.locations.trackn.description");
@@ -78,6 +76,16 @@ public class Game {
         trackSE.addExit("location.locations.trackse.exits.west", soccerFieldS);
 
         player.setCurrentLocation(soccerFieldN);
+
+        Item letter = new Item("items.letter.name", "items.letter.description", "items.letter.use");
+        Item key = new Item("items.key.name", "items.key.description", "items.key.use");
+        Item boulder = new Item("items.boulder.name", "items.boulder.description", "items.boulder.use", true, 50);
+        Item door = new Item("items.door.name", "items.door.description", "items.door.use",false);
+
+        key.setUseWith(door);
+
+        soccerFieldN.addItems(letter, key, boulder);
+        soccerFieldS.addItems(door);
     }
 
     private void processInput(Command cmd) {
@@ -90,6 +98,12 @@ public class Game {
                 break;
             case GO:
                 go(cmd.getArgs()[0]);
+                break;
+            case USE:
+                use(cmd.getArgs());
+                break;
+            case TAKE:
+                take(cmd.getArgs()[0]);
                 break;
             case UNKNOWN:
                 showCommandInvalidMessage();
@@ -106,6 +120,38 @@ public class Game {
             }
         }
         out.write(SportyZombies.getLanguageLoader().getLocalizedString("game.cantgothere"));
+    }
+
+    //TODO: Fix differentiation between use and useWith, add error for 2nd item not available
+    private void use(String[] args) {
+        if (args.length == 0)
+            out.write("game.use.what");
+        else if (args.length == 1) {
+            if (player.hasItem(args[0]))
+                out.write(SportyZombies.getLanguageLoader().getLocalizedString(player.useItem(args[0])));
+            else out.write(SportyZombies.getLanguageLoader().getLocalizedString("items.noitem"));
+        } else if (args.length == 2 && Command.isUseWord(args[1]))
+            out.write(SportyZombies.getLanguageLoader().getLocalizedString("game.use.onwhat"));
+        else if (args.length == 3 && Command.isUseWord(args[1])) {
+            if (player.hasItem(args[0])) {
+                if (player.getCurrentLocation().containsItem(args[2]))
+                    out.write(SportyZombies.getLanguageLoader().getLocalizedString(player.useItemOnLocItem(args[0],
+                            player.getCurrentLocation().getItem(args[2]))));
+                else if (player.hasItem(args[2]))
+                    out.write(SportyZombies.getLanguageLoader().getLocalizedString(player.useItemOnInvItem(args[0], args[2])));
+            } else out.write(SportyZombies.getLanguageLoader().getLocalizedString("items.noitem"));
+        }
+    }
+
+    private void take(String item) {
+        if (player.getCurrentLocation().containsItem(item)) {
+            Item i = player.getCurrentLocation().getItem(item);
+            if (i.isTakeable() && player.pickupItem(i))
+                out.write(SportyZombies.getLanguageLoader().getLocalizedString(i.getName()) + " " +
+                        SportyZombies.getLanguageLoader().getLocalizedString("game.taken"));
+            else
+                out.write(SportyZombies.getLanguageLoader().getLocalizedString("game.overloaded"));
+        }
     }
 
     private void showHelpMessage() {
